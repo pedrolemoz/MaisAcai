@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mais_acai/cart/order.dart';
-import 'package:mais_acai/cart/product_data.dart';
+import 'package:mais_acai/model/order.dart';
 import 'package:mais_acai/components/gradient_static_item_card.dart';
 import 'package:provider/provider.dart';
 
@@ -18,8 +17,7 @@ class BowlsTab extends StatelessWidget {
         darkColor: Color(0xFF6A1953),
         lightColor: Color(0xFF9a487f),
         onTap: () {
-          Provider.of<Order>(context, listen: false)
-              .setBowl(AcaiBowls.threeHundred);
+          Provider.of<Order>(context, listen: false).setBowl('300 ml');
           tabController.index++;
           print(Provider.of<Order>(context, listen: false).order);
         },
@@ -30,8 +28,7 @@ class BowlsTab extends StatelessWidget {
         darkColor: Color(0xFF6A1953),
         lightColor: Color(0xFF9a487f),
         onTap: () {
-          Provider.of<Order>(context, listen: false)
-              .setBowl(AcaiBowls.fourHundred);
+          Provider.of<Order>(context, listen: false).setBowl('400 ml');
           tabController.index++;
           print(Provider.of<Order>(context, listen: false).order);
         },
@@ -42,8 +39,7 @@ class BowlsTab extends StatelessWidget {
         darkColor: Color(0xFF6A1953),
         lightColor: Color(0xFF9a487f),
         onTap: () {
-          Provider.of<Order>(context, listen: false)
-              .setBowl(AcaiBowls.fiveHundred);
+          Provider.of<Order>(context, listen: false).setBowl('500 ml');
           tabController.index++;
           print(Provider.of<Order>(context, listen: false).order);
         },
@@ -54,8 +50,7 @@ class BowlsTab extends StatelessWidget {
         darkColor: Color(0xFF6A1953),
         lightColor: Color(0xFF9a487f),
         onTap: () {
-          Provider.of<Order>(context, listen: false)
-              .setBowl(AcaiBowls.oneThousand);
+          Provider.of<Order>(context, listen: false).setBowl('1 litro');
           tabController.index++;
           print(Provider.of<Order>(context, listen: false).order);
         },

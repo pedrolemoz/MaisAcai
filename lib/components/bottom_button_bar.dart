@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mais_acai/cart/order.dart';
+import 'package:mais_acai/model/order.dart';
 import 'package:mais_acai/utils/constants.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +27,6 @@ class _BottomButtonBarState extends State<BottomButtonBar> {
       onTap: active ? widget.onTap : null,
       child: Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
           gradient: active ? kPurpleGradient : kGrayGradient,
         ),
         child: Center(

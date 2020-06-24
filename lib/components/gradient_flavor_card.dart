@@ -1,57 +1,33 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:mais_acai/cart/order.dart';
+import 'package:mais_acai/model/order.dart';
+import 'package:mais_acai/model/product_data.dart';
 import 'package:provider/provider.dart';
 
-class GradientItemCard extends StatefulWidget {
-  GradientItemCard({
-    @required this.title,
-    @required this.imageURI,
-    @required this.lightColor,
-    @required this.darkColor,
-    this.item,
-    this.itemType,
+class GradientFlavorCard extends StatefulWidget {
+  GradientFlavorCard({
+    @required this.item,
   });
 
-  final String title;
-  final String imageURI;
-  final Color lightColor;
-  final Color darkColor;
-  final dynamic item;
-  final int itemType;
+  final Flavors item;
 
   @override
-  _GradientItemCardState createState() => _GradientItemCardState();
+  _GradientFlavorCardState createState() => _GradientFlavorCardState();
 }
 
-class _GradientItemCardState extends State<GradientItemCard> {
+class _GradientFlavorCardState extends State<GradientFlavorCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        switch (widget.itemType) {
-          case 1:
-            Provider.of<Order>(context, listen: false)
-                    .order[1]
-                    .contains(widget.item)
-                ? Provider.of<Order>(context, listen: false)
-                    .removeFlavor(widget.item)
-                : Provider.of<Order>(context, listen: false)
-                    .addFlavor(widget.item);
-            break;
-          case 2:
-            Provider.of<Order>(context, listen: false)
-                    .order[2]
-                    .contains(widget.item)
-                ? Provider.of<Order>(context, listen: false)
-                    .removeAdittional(widget.item)
-                : Provider.of<Order>(context, listen: false)
-                    .addAdittional(widget.item);
-            break;
-          default:
-            print('Item not found');
-        }
+        Provider.of<Order>(context, listen: false)
+                .order[1]
+                .contains(widget.item.name)
+            ? Provider.of<Order>(context, listen: false)
+                .removeFlavor(widget.item.name)
+            : Provider.of<Order>(context, listen: false)
+                .addFlavor(widget.item.name);
 
         setState(() {});
 
@@ -68,10 +44,7 @@ class _GradientItemCardState extends State<GradientItemCard> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              widget.lightColor,
-              widget.darkColor,
-            ],
+            colors: widget.item.colors,
           ),
         ),
         child: Stack(
@@ -88,16 +61,16 @@ class _GradientItemCardState extends State<GradientItemCard> {
                     FlutterIcons.check_fea,
                     size: 25,
                     color: Provider.of<Order>(context, listen: false)
-                            .order[widget.itemType]
-                            .contains(widget.item)
+                            .order[widget.item.itemType]
+                            .contains(widget.item.name)
                         ? Colors.white
                         : Colors.transparent,
                   ),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Provider.of<Order>(context, listen: false)
-                            .order[widget.itemType]
-                            .contains(widget.item)
+                            .order[widget.item.itemType]
+                            .contains(widget.item.name)
                         ? Colors.green
                         : Colors.transparent,
                   ),
@@ -108,11 +81,12 @@ class _GradientItemCardState extends State<GradientItemCard> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Image.asset(
-                  widget.imageURI,
+                  widget.item.imageURI,
                   height: 120.0,
                 ),
                 Text(
-                  widget.title,
+                  widget.item.name,
+                  textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
                       .subtitle1

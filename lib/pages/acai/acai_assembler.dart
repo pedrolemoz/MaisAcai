@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:mais_acai/pages/acai/tabs/adittionals_tab.dart';
+import 'package:mais_acai/pages/acai/tabs/additionals_tab.dart';
 import 'package:mais_acai/pages/acai/tabs/bowls_tab.dart';
 import 'package:mais_acai/pages/acai/tabs/flavors_tab.dart';
-
-// TODO: Alimentar a lista com os itens reais
 
 class AcaiAssembler extends StatefulWidget {
   static final routeID = 'acai_assembler';
@@ -66,7 +64,7 @@ class AcaiAssemblerState extends State<AcaiAssembler>
           children: [
             BowlsTab(tabController: _tabController),
             FlavorsTab(tabController: _tabController),
-            AdittionalsTab(tabController: _tabController),
+            AdditionalsTab(tabController: _tabController),
           ],
           controller: _tabController,
         ),

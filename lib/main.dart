@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mais_acai/cart/order.dart';
+import 'package:mais_acai/model/order.dart';
 import 'package:mais_acai/pages/acai/acai_assembler.dart';
+import 'package:mais_acai/pages/cart/cart_page.dart';
 import 'package:mais_acai/pages/home/home_page.dart';
 import 'package:provider/provider.dart';
 
@@ -75,6 +76,7 @@ class FoodApp extends StatelessWidget {
         routes: {
           HomePage.routeID: (context) => HomePage(),
           AcaiAssembler.routeID: (context) => AcaiAssembler(),
+          CartPage.routeID: (context) => CartPage(),
         },
       ),
     );

@@ -1,20 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:mais_acai/components/bottom_button_bar.dart';
-import 'package:mais_acai/components/gradient_flavor_card.dart';
+import 'package:mais_acai/components/gradient_additional_card.dart';
 import 'package:mais_acai/model/product_data.dart';
+import 'package:mais_acai/pages/cart/cart_page.dart';
 
-class FlavorsTab extends StatelessWidget {
-  FlavorsTab({@required this.tabController});
+class AdditionalsTab extends StatelessWidget {
+  AdditionalsTab({@required this.tabController});
 
   final TabController tabController;
 
   @override
   Widget build(BuildContext context) {
-    final List<GradientFlavorCard> flavorsList = [
-      GradientFlavorCard(item: Flavors.acaiPuro),
-      GradientFlavorCard(item: Flavors.acaiComBanana),
-      GradientFlavorCard(item: Flavors.acaiComMorango),
-      GradientFlavorCard(item: Flavors.acaiComCupuacu),
+    final List<GradientAdditionalCard> additionalsList = [
+      GradientAdditionalCard(item: Additionals.brigadeiro),
+      GradientAdditionalCard(item: Additionals.cerejas),
+      GradientAdditionalCard(item: Additionals.caldaDeChocolate),
+      GradientAdditionalCard(item: Additionals.caldaDeChocolateComCoco),
+      GradientAdditionalCard(item: Additionals.leiteCondensado),
+      GradientAdditionalCard(item: Additionals.granola),
     ];
 
     return Column(
@@ -32,11 +35,11 @@ class FlavorsTab extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Escolha o sabor',
+                      'Escolha os adicionais',
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
-                      'Escolha até duas combinações indescritíveis',
+                      'Escolha até três ingredientes para incrementar',
                       style: Theme.of(context)
                           .textTheme
                           .subtitle1
@@ -46,8 +49,8 @@ class FlavorsTab extends StatelessWidget {
                 ),
               ),
               GridView.builder(
-                key: PageStorageKey('flavors_tab'),
-                itemCount: flavorsList.length,
+                key: PageStorageKey('additionals_tab'),
+                itemCount: additionalsList.length,
                 physics: BouncingScrollPhysics(),
                 padding: EdgeInsets.all(10.0),
                 shrinkWrap: true,
@@ -57,7 +60,7 @@ class FlavorsTab extends StatelessWidget {
                   mainAxisSpacing: 10.0,
                 ),
                 itemBuilder: (context, index) {
-                  return flavorsList[index];
+                  return additionalsList[index];
                 },
               ),
             ],
@@ -65,10 +68,9 @@ class FlavorsTab extends StatelessWidget {
         ),
         BottomButtonBar(
           label: 'Continuar',
-          itemType: 1,
+          itemType: 2,
           onTap: () {
-            tabController.index++;
-            print(true);
+            Navigator.pushNamed(context, CartPage.routeID);
           },
         ),
       ],
