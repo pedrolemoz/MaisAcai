@@ -11,7 +11,7 @@ class BowlsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<GradientStaticItemCard> flavorsList = [
+    final List<GradientStaticItemCard> bowlsList = [
       GradientStaticItemCard(
         title: '300 ml',
         imageURI: 'assets/acai_puro.png',
@@ -88,8 +88,8 @@ class BowlsTab extends StatelessWidget {
           ),
         ),
         GridView.builder(
-          key: PageStorageKey(1),
-          itemCount: 4,
+          key: PageStorageKey('bowls_tab'),
+          itemCount: bowlsList.length,
           physics: BouncingScrollPhysics(),
           padding: EdgeInsets.all(10.0),
           shrinkWrap: true,
@@ -99,7 +99,7 @@ class BowlsTab extends StatelessWidget {
             mainAxisSpacing: 10.0,
           ),
           itemBuilder: (context, index) {
-            return flavorsList[index];
+            return bowlsList[index];
           },
         ),
       ],

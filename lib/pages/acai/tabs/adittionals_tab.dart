@@ -3,45 +3,61 @@ import 'package:mais_acai/cart/product_data.dart';
 import 'package:mais_acai/components/bottom_button_bar.dart';
 import 'package:mais_acai/components/gradient_item_card.dart';
 
-class FlavorsTab extends StatelessWidget {
-  FlavorsTab({@required this.tabController});
+class AdittionalsTab extends StatelessWidget {
+  AdittionalsTab({@required this.tabController});
 
   final TabController tabController;
 
   @override
   Widget build(BuildContext context) {
-    final List<GradientItemCard> flavorsList = [
+    final List<GradientItemCard> adittionalsList = [
       GradientItemCard(
-        title: 'Açaí Puro',
+        title: 'Brigadeiro',
         imageURI: 'assets/acai_puro.png',
         darkColor: Color(0xFF6A1953),
         lightColor: Color(0xFF9a487f),
-        item: AcaiFlavors.acai,
-        itemType: 1,
+        item: AcaiAdditionals.brigadeiro,
+        itemType: 2,
       ),
       GradientItemCard(
-        title: 'Açaí com Banana',
-        imageURI: 'assets/acai_com_banana.png',
-        darkColor: Colors.yellow[900],
-        lightColor: Colors.yellow[600],
-        item: AcaiFlavors.acaiWithBanana,
-        itemType: 1,
+        title: 'Cerejas',
+        imageURI: 'assets/acai_puro.png',
+        darkColor: Color(0xFF6A1953),
+        lightColor: Color(0xFF9a487f),
+        item: AcaiAdditionals.cherries,
+        itemType: 2,
       ),
       GradientItemCard(
-        title: 'Açaí com Morango',
-        imageURI: 'assets/acai_com_morango.png',
-        darkColor: Colors.red[900],
-        lightColor: Colors.red[600],
-        item: AcaiFlavors.acaiWithStrawberry,
-        itemType: 1,
+        title: 'Calda de chocolate',
+        imageURI: 'assets/acai_puro.png',
+        darkColor: Color(0xFF6A1953),
+        lightColor: Color(0xFF9a487f),
+        item: AcaiAdditionals.chocolateSyrup,
+        itemType: 2,
       ),
       GradientItemCard(
-        title: 'Açaí com Cupuaçu',
-        imageURI: 'assets/acai_com_cupuacu.png',
-        darkColor: Colors.brown[900],
-        lightColor: Colors.brown[600],
-        item: AcaiFlavors.acaiWithCupuacu,
-        itemType: 1,
+        title: 'Calda de chocolate com côco',
+        imageURI: 'assets/acai_puro.png',
+        darkColor: Color(0xFF6A1953),
+        lightColor: Color(0xFF9a487f),
+        item: AcaiAdditionals.chocolateSyrupWithCoconut,
+        itemType: 2,
+      ),
+      GradientItemCard(
+        title: 'Leite condensado',
+        imageURI: 'assets/acai_puro.png',
+        darkColor: Color(0xFF6A1953),
+        lightColor: Color(0xFF9a487f),
+        item: AcaiAdditionals.condensedMilk,
+        itemType: 2,
+      ),
+      GradientItemCard(
+        title: 'Granola',
+        imageURI: 'assets/acai_puro.png',
+        darkColor: Color(0xFF6A1953),
+        lightColor: Color(0xFF9a487f),
+        item: AcaiAdditionals.granola,
+        itemType: 2,
       ),
     ];
 
@@ -60,11 +76,11 @@ class FlavorsTab extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Escolha o sabor',
+                      'Escolha os adicionais',
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
-                      'Escolha até duas combinações indescritíveis',
+                      'Escolha até três ingredientes para incrementar',
                       style: Theme.of(context)
                           .textTheme
                           .subtitle1
@@ -74,8 +90,8 @@ class FlavorsTab extends StatelessWidget {
                 ),
               ),
               GridView.builder(
-                key: PageStorageKey('flavors_tab'),
-                itemCount: flavorsList.length,
+                key: PageStorageKey('adittionals_tab'),
+                itemCount: adittionalsList.length,
                 physics: BouncingScrollPhysics(),
                 padding: EdgeInsets.all(10.0),
                 shrinkWrap: true,
@@ -85,7 +101,7 @@ class FlavorsTab extends StatelessWidget {
                   mainAxisSpacing: 10.0,
                 ),
                 itemBuilder: (context, index) {
-                  return flavorsList[index];
+                  return adittionalsList[index];
                 },
               ),
             ],
@@ -93,9 +109,8 @@ class FlavorsTab extends StatelessWidget {
         ),
         BottomButtonBar(
           label: 'Continuar',
-          itemType: 1,
+          itemType: 2,
           onTap: () {
-            tabController.index++;
             print(true);
           },
         ),

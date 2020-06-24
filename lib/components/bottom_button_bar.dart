@@ -27,6 +27,7 @@ class _BottomButtonBarState extends State<BottomButtonBar> {
       onTap: active ? widget.onTap : null,
       child: Container(
         decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
           gradient: active ? kPurpleGradient : kGrayGradient,
         ),
         child: Center(
@@ -37,7 +38,6 @@ class _BottomButtonBarState extends State<BottomButtonBar> {
                 ),
           ),
         ),
-        width: double.infinity,
         height: 70.0,
       ),
     );

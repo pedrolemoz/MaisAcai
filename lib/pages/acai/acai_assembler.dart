@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:mais_acai/pages/acai/tabs/adittionals_tab.dart';
 import 'package:mais_acai/pages/acai/tabs/bowls_tab.dart';
 import 'package:mais_acai/pages/acai/tabs/flavors_tab.dart';
 
@@ -65,7 +66,7 @@ class AcaiAssemblerState extends State<AcaiAssembler>
           children: [
             BowlsTab(tabController: _tabController),
             FlavorsTab(tabController: _tabController),
-            Container(),
+            AdittionalsTab(tabController: _tabController),
           ],
           controller: _tabController,
         ),

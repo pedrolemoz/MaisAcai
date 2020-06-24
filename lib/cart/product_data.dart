@@ -12,9 +12,24 @@ enum AcaiFlavors {
   acaiWithStrawberry,
 }
 
-enum Additionals {
+enum AcaiAdditionals {
   chocolateSyrup,
+  chocolateSyrupWithCoconut,
   cherrySyrup,
   granola,
   powderedMilk,
+  condensedMilk,
+  honey,
+  dairyFlour,
+  jujube,
+  grainy,
+  cherries,
+  granulatedPeanuts,
+  nestCream,
+  sweetPacoca,
+  sesamePacoca,
+  brigadeiro,
+  mm,
+  strawberrySyrup,
+  tapiocaFlour
 }
