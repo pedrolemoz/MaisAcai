@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:mais_acai/pages/acai/tabs/additionals_tab.dart';
 import 'package:mais_acai/pages/acai/tabs/bowls_tab.dart';
@@ -24,6 +25,7 @@ class AcaiAssemblerState extends State<AcaiAssembler>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         centerTitle: true,
         backgroundColor: Theme.of(context).backgroundColor,
         elevation: 0.0,

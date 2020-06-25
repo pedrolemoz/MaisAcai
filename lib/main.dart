@@ -7,10 +7,10 @@ import 'package:mais_acai/pages/home/home_page.dart';
 import 'package:provider/provider.dart';
 
 void main() {
-  runApp(FoodApp());
+  runApp(MaisAcai());
 }
 
-class FoodApp extends StatelessWidget {
+class MaisAcai extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
