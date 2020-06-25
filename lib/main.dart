@@ -1,3 +1,4 @@
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:mais_acai/model/order.dart';
 import 'package:mais_acai/pages/acai/acai_assembler.dart';
@@ -72,6 +73,8 @@ class FoodApp extends StatelessWidget {
             ),
           ),
         ),
+        builder: BotToastInit(), //1. call BotToastInit
+        navigatorObservers: [BotToastNavigatorObserver()],
         initialRoute: HomePage.routeID,
         routes: {
           HomePage.routeID: (context) => HomePage(),

@@ -24,7 +24,7 @@ enum Additionals {
 }
 
 extension BowlExtension on Bowls {
-  int get itemType => 1;
+  int get itemType => 0;
 
   String get name {
     switch (this) {

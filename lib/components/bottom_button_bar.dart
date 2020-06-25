@@ -21,7 +21,27 @@ class BottomButtonBar extends StatefulWidget {
 class _BottomButtonBarState extends State<BottomButtonBar> {
   @override
   Widget build(BuildContext context) {
-    bool active = Provider.of<Order>(context).order[widget.itemType].isNotEmpty;
+    bool active;
+
+    switch (widget.itemType) {
+      case 0:
+        active = Provider.of<Order>(context).order[widget.itemType].isNotEmpty;
+        break;
+      case 1:
+        active = Provider.of<Order>(context)
+                .order[widget.itemType]
+                .isNotEmpty &&
+            Provider.of<Order>(context).order[widget.itemType - 1] != dynamic;
+        break;
+      case 2:
+        active = Provider.of<Order>(context)
+                .order[widget.itemType]
+                .isNotEmpty &&
+            Provider.of<Order>(context).order[widget.itemType - 1].isNotEmpty;
+        break;
+      default:
+        active = false;
+    }
 
     return GestureDetector(
       onTap: active ? widget.onTap : null,

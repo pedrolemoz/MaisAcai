@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(
               top: 15.0,
               bottom: 5.0,
-              left: 10.0,
+              left: 15.0,
             ),
             child: Text(
               'O que você deseja?',
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
             key: PageStorageKey('menu_items'),
             itemCount: 2,
             physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.all(10.0),
+            padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
             shrinkWrap: true,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,

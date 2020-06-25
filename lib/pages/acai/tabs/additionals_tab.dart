@@ -29,7 +29,7 @@ class AdditionalsTab extends StatelessWidget {
                 padding: EdgeInsets.only(
                   top: 15.0,
                   bottom: 5.0,
-                  left: 10.0,
+                  left: 15.0,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -39,7 +39,7 @@ class AdditionalsTab extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
-                      'Escolha até três ingredientes para incrementar',
+                      'Escolha até três ingredientes',
                       style: Theme.of(context)
                           .textTheme
                           .subtitle1
@@ -52,7 +52,7 @@ class AdditionalsTab extends StatelessWidget {
                 key: PageStorageKey('additionals_tab'),
                 itemCount: additionalsList.length,
                 physics: BouncingScrollPhysics(),
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

@@ -53,7 +53,7 @@ class AcaiAssemblerState extends State<AcaiAssembler>
           unselectedLabelColor: Colors.grey[600],
           indicatorColor: Theme.of(context).primaryColor,
           labelPadding: EdgeInsets.all(10.0),
-          isScrollable: true,
+          isScrollable: false,
           tabs: [
             Text('Tamanho'),
             Text('Sabores'),

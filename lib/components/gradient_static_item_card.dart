@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mais_acai/utils/constants.dart';
 
 class GradientStaticItemCard extends StatelessWidget {
   GradientStaticItemCard({
@@ -6,7 +7,6 @@ class GradientStaticItemCard extends StatelessWidget {
     @required this.imageURI,
     @required this.lightColor,
     @required this.darkColor,
-    this.shadow = false,
     this.onTap,
   });
 
@@ -14,7 +14,6 @@ class GradientStaticItemCard extends StatelessWidget {
   final String imageURI;
   final Color lightColor;
   final Color darkColor;
-  final bool shadow;
   final Function onTap;
 
   @override
@@ -28,16 +27,7 @@ class GradientStaticItemCard extends StatelessWidget {
           minWidth: 180.0,
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
-          boxShadow: !shadow
-              ? null
-              : [
-                  BoxShadow(
-                    color: darkColor,
-                    spreadRadius: 0.5,
-                    blurRadius: 1.8,
-                  ),
-                ],
+          borderRadius: BorderRadius.circular(kBorderRadius),
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,

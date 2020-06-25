@@ -6,29 +6,29 @@ import 'package:mais_acai/model/product_data.dart';
 import 'package:mais_acai/utils/constants.dart';
 import 'package:provider/provider.dart';
 
-class GradientFlavorCard extends StatefulWidget {
-  GradientFlavorCard({
+class GradientBowlCard extends StatefulWidget {
+  GradientBowlCard({
     @required this.item,
   });
 
-  final Flavors item;
+  final Bowls item;
 
   @override
-  _GradientFlavorCardState createState() => _GradientFlavorCardState();
+  _GradientBowlCardState createState() => _GradientBowlCardState();
 }
 
-class _GradientFlavorCardState extends State<GradientFlavorCard> {
+class _GradientBowlCardState extends State<GradientBowlCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Provider.of<Order>(context, listen: false)
-                .order[1]
+                .order[0]
                 .contains(widget.item.name)
             ? Provider.of<Order>(context, listen: false)
-                .removeFlavor(widget.item.name)
+                .removeBowl(widget.item.name)
             : Provider.of<Order>(context, listen: false)
-                .addFlavor(widget.item.name);
+                .setBowl(widget.item.name);
 
         setState(() {});
 
@@ -50,7 +50,8 @@ class _GradientFlavorCardState extends State<GradientFlavorCard> {
         ),
         child: Stack(
           alignment: Alignment.center,
-          children: <Widget>[ Align(
+          children: <Widget>[
+            Align(
               alignment: Alignment.topRight,
               child: Padding(
                 padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 0.0),

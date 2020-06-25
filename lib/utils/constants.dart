@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+const kBorderRadius = 18.0;
+
 const kPurpleGradient = LinearGradient(
   colors: [
     Color(0xFF6a1953),

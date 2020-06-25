@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:mais_acai/components/bottom_button_bar.dart';
 import 'package:mais_acai/components/gradient_flavor_card.dart';
@@ -10,7 +12,7 @@ class FlavorsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<GradientFlavorCard> flavorsList = [
+    final List<Widget> flavorsList = [
       GradientFlavorCard(item: Flavors.acaiPuro),
       GradientFlavorCard(item: Flavors.acaiComBanana),
       GradientFlavorCard(item: Flavors.acaiComMorango),
@@ -26,7 +28,7 @@ class FlavorsTab extends StatelessWidget {
                 padding: EdgeInsets.only(
                   top: 15.0,
                   bottom: 5.0,
-                  left: 10.0,
+                  left: 15.0,
                 ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -36,7 +38,7 @@ class FlavorsTab extends StatelessWidget {
                       style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
-                      'Escolha até duas combinações indescritíveis',
+                      'Escolha até duas combinações',
                       style: Theme.of(context)
                           .textTheme
                           .subtitle1
@@ -49,7 +51,7 @@ class FlavorsTab extends StatelessWidget {
                 key: PageStorageKey('flavors_tab'),
                 itemCount: flavorsList.length,
                 physics: BouncingScrollPhysics(),
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                 shrinkWrap: true,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,

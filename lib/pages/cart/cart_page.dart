@@ -57,14 +57,12 @@ class _CartPageState extends State<CartPage> {
               alignment: Alignment.center,
               children: <Widget>[
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     Image.asset(
                       'assets/acai_puro.png',
                       height: 120.0,
                     ),
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
                           'Pote de 300 ml',
@@ -75,7 +73,7 @@ class _CartPageState extends State<CartPage> {
                               .copyWith(color: Colors.white),
                         ),
                         Text(
-                          'Açaí com Banana, Açaí com Morango',
+                          'Açaí com BananaAçaí com Morango',
                           textAlign: TextAlign.center,
                           style: Theme.of(context)
                               .textTheme

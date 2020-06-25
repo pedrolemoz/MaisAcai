@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:mais_acai/model/order.dart';
 import 'package:mais_acai/model/product_data.dart';
+import 'package:mais_acai/utils/constants.dart';
 import 'package:provider/provider.dart';
 
 class GradientAdditionalCard extends StatefulWidget {
@@ -40,7 +41,7 @@ class _GradientAdditionalState extends State<GradientAdditionalCard> {
           minWidth: 180.0,
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(kBorderRadius),
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
