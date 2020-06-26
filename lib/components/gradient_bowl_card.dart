@@ -22,9 +22,7 @@ class _GradientBowlCardState extends State<GradientBowlCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-       
-       Provider.of<Order>(context, listen: false)
-                .setBowl(widget.item.name);
+        Provider.of<Order>(context, listen: false).setBowl(widget.item.name);
 
         setState(() {});
 

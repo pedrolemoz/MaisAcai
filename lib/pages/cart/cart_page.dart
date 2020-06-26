@@ -45,6 +45,25 @@ class _CartPageState extends State<CartPage> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(bottom: 15.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Confira os seus pedidos',
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        'Verifique se tudo está correto',
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            .copyWith(color: Color(0xFF5E6163)),
+                      ),
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 15.0),
                   child: OrderCard(),
                 ),
                 OrderCard(),

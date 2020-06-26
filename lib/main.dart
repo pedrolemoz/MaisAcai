@@ -1,4 +1,3 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mais_acai/model/order.dart';
@@ -78,8 +77,6 @@ class MaisAcai extends StatelessWidget {
             ),
           ),
         ),
-        // builder: BotToastInit(),
-        // navigatorObservers: [BotToastNavigatorObserver()],
         initialRoute: HomePage.routeID,
         routes: {
           HomePage.routeID: (context) => HomePage(),
