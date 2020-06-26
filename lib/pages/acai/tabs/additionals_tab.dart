@@ -67,7 +67,7 @@ class AdditionalsTab extends StatelessWidget {
           ),
         ),
         BottomButtonBar(
-          label: 'Continuar',
+          label: 'Adicionar ao carrinho',
           itemType: 2,
           onTap: () {
             Navigator.pushNamed(context, CartPage.routeID);

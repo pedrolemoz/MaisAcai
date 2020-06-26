@@ -25,19 +25,20 @@ class _BottomButtonBarState extends State<BottomButtonBar> {
 
     switch (widget.itemType) {
       case 0:
-        active = Provider.of<Order>(context).order[widget.itemType].isNotEmpty;
+        active = Provider.of<Order>(context).order[widget.itemType] != dynamic;
         break;
       case 1:
         active = Provider.of<Order>(context)
                 .order[widget.itemType]
                 .isNotEmpty &&
-            Provider.of<Order>(context).order[widget.itemType - 1] != dynamic;
+            Provider.of<Order>(context).order[widget.itemType - 1].isNotEmpty;
         break;
       case 2:
         active = Provider.of<Order>(context)
                 .order[widget.itemType]
                 .isNotEmpty &&
-            Provider.of<Order>(context).order[widget.itemType - 1].isNotEmpty;
+            Provider.of<Order>(context).order[widget.itemType - 1].isNotEmpty &&
+            Provider.of<Order>(context).order[widget.itemType - 2].isNotEmpty;
         break;
       default:
         active = false;

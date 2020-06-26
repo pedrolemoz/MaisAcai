@@ -1,5 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mais_acai/model/order.dart';
 import 'package:mais_acai/pages/acai/acai_assembler.dart';
 import 'package:mais_acai/pages/cart/cart_page.dart';
@@ -13,6 +14,10 @@ void main() {
 class MaisAcai extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Color(0xFFF5F8FC),
+      statusBarIconBrightness: Brightness.dark,
+    ));
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<Order>(
@@ -73,8 +78,8 @@ class MaisAcai extends StatelessWidget {
             ),
           ),
         ),
-        builder: BotToastInit(), //1. call BotToastInit
-        navigatorObservers: [BotToastNavigatorObserver()],
+        // builder: BotToastInit(),
+        // navigatorObservers: [BotToastNavigatorObserver()],
         initialRoute: HomePage.routeID,
         routes: {
           HomePage.routeID: (context) => HomePage(),

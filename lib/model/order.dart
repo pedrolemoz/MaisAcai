@@ -1,18 +1,11 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 
 class Order extends ChangeNotifier {
-  List order = [[], [], []];
-  int orderIndex = 0;
+  List order = [dynamic, [], []];
 
   void setBowl(dynamic bowl) {
-    if (order[0].length < 1) {
-      order[0].add(bowl);
-    }
-    notifyListeners();
-  }
-
-  void removeBowl(dynamic bowl) {
-    order[0].remove(bowl);
+    order[0] = bowl;
     notifyListeners();
   }
 

@@ -52,7 +52,7 @@ class AcaiAssemblerState extends State<AcaiAssembler>
           controller: _tabController,
           labelColor: Theme.of(context).primaryColor,
           labelStyle: Theme.of(context).textTheme.headline6,
-          unselectedLabelColor: Colors.grey[600],
+          unselectedLabelColor: Color(0xFF5E6163),
           indicatorColor: Theme.of(context).primaryColor,
           labelPadding: EdgeInsets.all(10.0),
           isScrollable: false,

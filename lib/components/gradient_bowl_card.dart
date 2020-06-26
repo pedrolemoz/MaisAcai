@@ -22,12 +22,8 @@ class _GradientBowlCardState extends State<GradientBowlCard> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Provider.of<Order>(context, listen: false)
-                .order[0]
-                .contains(widget.item.name)
-            ? Provider.of<Order>(context, listen: false)
-                .removeBowl(widget.item.name)
-            : Provider.of<Order>(context, listen: false)
+       
+       Provider.of<Order>(context, listen: false)
                 .setBowl(widget.item.name);
 
         setState(() {});
@@ -61,16 +57,16 @@ class _GradientBowlCardState extends State<GradientBowlCard> {
                   child: Icon(
                     FlutterIcons.check_fea,
                     size: 25,
-                    color: Provider.of<Order>(context, listen: false)
-                            .order[widget.item.itemType]
+                    color: Provider.of<Order>(context)
+                            .order
                             .contains(widget.item.name)
                         ? Colors.white
                         : Colors.transparent,
                   ),
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Provider.of<Order>(context, listen: false)
-                            .order[widget.item.itemType]
+                    color: Provider.of<Order>(context)
+                            .order
                             .contains(widget.item.name)
                         ? Colors.green
                         : Colors.transparent,
