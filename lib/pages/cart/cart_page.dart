@@ -63,10 +63,9 @@ class _CartPageState extends State<CartPage> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: 15.0),
-                  child: OrderCard(),
+                  padding: EdgeInsets.symmetric(vertical: 7.5),
+                  child: Dismissible(key: Key('card'), child: OrderCard()),
                 ),
-                OrderCard(),
               ],
             ),
           ),
@@ -85,27 +84,25 @@ class FinishAllOrders extends StatefulWidget {
 class _FinishAllOrdersState extends State<FinishAllOrders> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xFF1AB860),
-              Color(0xFF1BC467),
-            ],
-          ),
-        ),
-        child: Center(
-          child: Text(
-            'Confirmar compra',
-            style: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(color: Color(0xFFF5F8FC)),
-          ),
-        ),
+    return Material(
+      elevation: 2.0,
+      child: Ink(
         height: 70.0,
+        decoration: BoxDecoration(
+          gradient: kPurpleGradient,
+        ),
+        child: InkWell(
+          onTap: () {},
+          splashColor: Color(0xFFCED2D9),
+          child: Center(
+            child: Text(
+              'Escolher endereço de entrega',
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    color: Colors.white,
+                  ),
+            ),
+          ),
+        ),
       ),
     );
   }
@@ -114,93 +111,162 @@ class _FinishAllOrdersState extends State<FinishAllOrders> {
 class OrderCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(kBorderRadius),
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            Color(0xFF9a487f),
-            Color(0xFF6A1953),
+    return Material(
+      elevation: 8.0,
+      borderRadius: BorderRadius.circular(kBorderRadius),
+      child: Ink(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(kBorderRadius),
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              Color(0xFF9a487f),
+              Color(0xFF6A1953),
+            ],
+          ),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              height: 50.0,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(kBorderRadius),
+                  topRight: Radius.circular(kBorderRadius),
+                ),
+              ),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Valor: R\$ 20,00',
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1
+                            .copyWith(color: Theme.of(context).backgroundColor),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: OrderBowl(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: OrderFlavors(),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 10.0),
+                    child: OrderAdditionals(),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
-      ),
-      child: Column(
-        children: [
-          Container(
-            height: 50.0,
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(kBorderRadius),
-                topRight: Radius.circular(kBorderRadius),
-              ),
-            ),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20.0),
-                child: Text(
-                  'Valor: R\$ 20,00',
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Theme.of(context).backgroundColor),
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              top: 12.0,
-              bottom: 20.0,
-              left: 20.0,
-              right: 20.0,
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: OrderBowl(),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 10.0),
-                  child: OrderFlavors(),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(bottom: 15.0),
-                  child: OrderAdditionals(),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CheckoutActionButton(
-                      label: 'Apagar',
-                    ),
-                    VerticalDivider(),
-                    CheckoutActionButton(
-                      label: 'Duplicar',
-                    ),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ],
       ),
     );
   }
 }
+//   @override
+//   Widget build(BuildContext context) {
+//     return Dismissible(
+//       key: Key('card'),
+//       child: Container(
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(kBorderRadius),
+//           gradient: LinearGradient(
+//             begin: Alignment.topCenter,
+//             end: Alignment.bottomCenter,
+//             colors: [
+//               Color(0xFF9a487f),
+//               Color(0xFF6A1953),
+//             ],
+//           ),
+//         ),
+//         child: Column(
+//           crossAxisAlignment: CrossAxisAlignment.start,
+//           children: [
+//             Container(
+//               height: 50.0,
+//               width: double.infinity,
+//               decoration: BoxDecoration(
+//                 color: Theme.of(context).primaryColor,
+//                 borderRadius: BorderRadius.only(
+//                   topLeft: Radius.circular(kBorderRadius),
+//                   topRight: Radius.circular(kBorderRadius),
+//                 ),
+//               ),
+//               child: Align(
+//                 alignment: Alignment.centerLeft,
+//                 child: Padding(
+//                   padding: EdgeInsets.symmetric(horizontal: 20.0),
+//                   child: Row(
+//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                     children: [
+//                       Text(
+//                         'Valor: R\$ 20,00',
+//                         style: Theme.of(context)
+//                             .textTheme
+//                             .subtitle1
+//                             .copyWith(color: Theme.of(context).backgroundColor),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ),
+//             Padding(
+//               padding: EdgeInsets.all(20.0),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.start,
+//                 children: [
+//                   Padding(
+//                     padding: EdgeInsets.only(bottom: 10.0),
+//                     child: OrderBowl(),
+//                   ),
+//                   Padding(
+//                     padding: EdgeInsets.only(bottom: 10.0),
+//                     child: OrderFlavors(),
+//                   ),
+//                   Padding(
+//                     padding: EdgeInsets.only(bottom: 10.0),
+//                     child: OrderAdditionals(),
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class CheckoutActionButton extends StatefulWidget {
   CheckoutActionButton({
     @required this.label,
+    @required this.color,
   });
 
-  final String label;
+  final Text label;
+  final Color color;
 
   @override
   _CheckoutActionButtonState createState() => _CheckoutActionButtonState();
@@ -217,16 +283,10 @@ class _CheckoutActionButtonState extends State<CheckoutActionButton> {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15.0),
-            color: Theme.of(context).backgroundColor,
+            color: widget.color,
           ),
           child: Center(
-            child: Text(
-              widget.label,
-              style: Theme.of(context).textTheme.subtitle1.copyWith(
-                    color: Theme.of(context).primaryColor,
-                    fontWeight: FontWeight.w800,
-                  ),
-            ),
+            child: widget.label,
           ),
           height: 50.0,
         ),

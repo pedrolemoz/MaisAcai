@@ -69,7 +69,14 @@ class AdditionalsTab extends StatelessWidget {
         BottomButtonBar(
           label: 'Adicionar ao carrinho',
           itemType: 2,
-          onTap: () {
+          onTap: () async {
+            // Provider.of<Order>(context, listen: false).addOrderToCart(context);
+            // SharedPreferences prefs = await SharedPreferences.getInstance();
+            // await prefs.setString(
+            //   'cart',
+            //   Provider.of<Cart>(context, listen: false).cartToJSON(),
+            // );
+            // print(prefs.getString('cart'));
             Navigator.pushNamed(context, CartPage.routeID);
           },
         ),

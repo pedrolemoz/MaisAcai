@@ -11,18 +11,10 @@ class BowlsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<GradientBowlCard> bowlsList = [
-      GradientBowlCard(
-        item: Bowls.threeHundred,
-      ),
-      GradientBowlCard(
-        item: Bowls.fourHundred,
-      ),
-      GradientBowlCard(
-        item: Bowls.fiveHundred,
-      ),
-      GradientBowlCard(
-        item: Bowls.oneThousand,
-      ),
+      GradientBowlCard(item: Bowls.threeHundred),
+      GradientBowlCard(item: Bowls.fourHundred),
+      GradientBowlCard(item: Bowls.fiveHundred),
+      GradientBowlCard(item: Bowls.oneThousand),
     ];
 
     return Column(

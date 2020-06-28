@@ -20,76 +20,82 @@ class GradientBowlCard extends StatefulWidget {
 class _GradientBowlCardState extends State<GradientBowlCard> {
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Provider.of<Order>(context, listen: false).setBowl(widget.item.name);
-
-        setState(() {});
-
-        print(Provider.of<Order>(context, listen: false).order);
-      },
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
-        constraints: BoxConstraints(
-          minHeight: 180.0,
-          minWidth: 180.0,
-        ),
+    return Material(
+      elevation: 2.0,
+      borderRadius: BorderRadius.circular(kBorderRadius),
+      child: Ink(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
             colors: widget.item.colors,
           ),
+          borderRadius: BorderRadius.circular(kBorderRadius),
         ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            Align(
-              alignment: Alignment.topRight,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 0.0),
-                child: Container(
-                  width: 35,
-                  height: 35,
-                  child: Icon(
-                    FlutterIcons.check_fea,
-                    size: 25,
-                    color: Provider.of<Order>(context)
-                            .order
-                            .contains(widget.item.name)
-                        ? Colors.white
-                        : Colors.transparent,
-                  ),
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Provider.of<Order>(context)
-                            .order
-                            .contains(widget.item.name)
-                        ? Colors.green
-                        : Colors.transparent,
-                  ),
-                ),
-              ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        child: InkWell(
+          onTap: () {
+            Provider.of<Order>(context, listen: false)
+                .setBowl(widget.item.name);
+
+            setState(() {});
+
+            print(Provider.of<Order>(context, listen: false).order);
+          },
+          borderRadius: BorderRadius.circular(kBorderRadius),
+          splashColor: Color(0xFFCED2D9),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Stack(
+              alignment: Alignment.center,
               children: <Widget>[
-                Image.asset(
-                  widget.item.imageURI,
-                  height: 120.0,
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(vertical: 8.0, horizontal: 0.0),
+                    child: Container(
+                      width: 35,
+                      height: 35,
+                      child: Icon(
+                        FlutterIcons.check_fea,
+                        size: 25,
+                        color: Provider.of<Order>(context)
+                                .order
+                                .contains(widget.item.name)
+                            ? Colors.white
+                            : Colors.transparent,
+                      ),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Provider.of<Order>(context)
+                                .order
+                                .contains(widget.item.name)
+                            ? Colors.green
+                            : Colors.transparent,
+                      ),
+                    ),
+                  ),
                 ),
-                Text(
-                  widget.item.name,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context)
-                      .textTheme
-                      .subtitle1
-                      .copyWith(color: Colors.white),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Image.asset(
+                      widget.item.imageURI,
+                      height: 120.0,
+                    ),
+                    Text(
+                      widget.item.name,
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .subtitle1
+                          .copyWith(color: Colors.white),
+                    ),
+                  ],
                 ),
               ],
             ),
-          ],
+          ),
         ),
       ),
     );

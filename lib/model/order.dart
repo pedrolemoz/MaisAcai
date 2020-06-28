@@ -1,8 +1,18 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mais_acai/model/cart.dart';
+import 'package:provider/provider.dart';
 
 class Order extends ChangeNotifier {
   List order = [dynamic, [], []];
+
+  // String orderToJSON() {
+  //   return json.encode({'order': order});
+  // }
+
+  void addOrderToCart(BuildContext context) {
+    Provider.of<Cart>(context, listen: false).addOrder(order);
+  }
 
   void setBowl(dynamic bowl) {
     order[0] = bowl;

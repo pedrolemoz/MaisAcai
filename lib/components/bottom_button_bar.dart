@@ -31,34 +31,38 @@ class _BottomButtonBarState extends State<BottomButtonBar> {
         active = Provider.of<Order>(context)
                 .order[widget.itemType]
                 .isNotEmpty &&
-            Provider.of<Order>(context).order[widget.itemType - 1].isNotEmpty;
+            Provider.of<Order>(context).order[widget.itemType - 1] != dynamic;
         break;
       case 2:
         active = Provider.of<Order>(context)
                 .order[widget.itemType]
                 .isNotEmpty &&
             Provider.of<Order>(context).order[widget.itemType - 1].isNotEmpty &&
-            Provider.of<Order>(context).order[widget.itemType - 2].isNotEmpty;
+            Provider.of<Order>(context).order[widget.itemType - 2] != dynamic;
         break;
       default:
         active = false;
     }
 
-    return GestureDetector(
-      onTap: active ? widget.onTap : null,
-      child: Container(
+    return Material(
+      elevation: 2.0,
+      child: Ink(
+        height: 70.0,
         decoration: BoxDecoration(
           gradient: active ? kPurpleGradient : kGrayGradient,
         ),
-        child: Center(
-          child: Text(
-            widget.label,
-            style: Theme.of(context).textTheme.headline6.copyWith(
-                  color: active ? Color(0xFFF5F8FC) : Colors.white,
-                ),
+        child: InkWell(
+          onTap: active ? widget.onTap : null,
+          splashColor: Color(0xFFCED2D9),
+          child: Center(
+            child: Text(
+              widget.label,
+              style: Theme.of(context).textTheme.headline6.copyWith(
+                    color: Colors.white,
+                  ),
+            ),
           ),
         ),
-        height: 70.0,
       ),
     );
   }

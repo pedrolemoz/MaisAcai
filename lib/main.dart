@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mais_acai/model/cart.dart';
 import 'package:mais_acai/model/order.dart';
 import 'package:mais_acai/pages/acai/acai_assembler.dart';
 import 'package:mais_acai/pages/cart/cart_page.dart';
@@ -21,6 +22,9 @@ class MaisAcai extends StatelessWidget {
       providers: [
         ChangeNotifierProvider<Order>(
           create: (context) => Order(),
+        ),
+        ChangeNotifierProvider<Cart>(
+          create: (context) => Cart(),
         ),
       ],
       child: MaterialApp(

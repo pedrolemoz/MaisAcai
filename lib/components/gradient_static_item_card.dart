@@ -18,16 +18,11 @@ class GradientStaticItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 10.0),
-        constraints: BoxConstraints(
-          minHeight: 180.0,
-          minWidth: 180.0,
-        ),
+    return Material(
+      elevation: 2.0,
+      borderRadius: BorderRadius.circular(kBorderRadius),
+      child: Ink(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(kBorderRadius),
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -36,24 +31,76 @@ class GradientStaticItemCard extends StatelessWidget {
               darkColor,
             ],
           ),
+          borderRadius: BorderRadius.circular(kBorderRadius),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            Image.asset(
-              imageURI,
-              height: 120.0,
+        child: InkWell(
+          onTap: onTap ?? () {},
+          borderRadius: BorderRadius.circular(kBorderRadius),
+          splashColor: Color(0xFFCED2D9),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                Image.asset(
+                  imageURI,
+                  height: 120.0,
+                ),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      .copyWith(color: Colors.white),
+                ),
+              ],
             ),
-            Text(
-              title,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1
-                  .copyWith(color: Colors.white),
-            ),
-          ],
+          ),
         ),
       ),
     );
   }
 }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return GestureDetector(
+//       onTap: onTap,
+//       child: Container(
+//         padding: EdgeInsets.symmetric(horizontal: 10.0),
+//         constraints: BoxConstraints(
+//           minHeight: 180.0,
+//           minWidth: 180.0,
+//         ),
+//         decoration: BoxDecoration(
+//           borderRadius: BorderRadius.circular(kBorderRadius),
+//           gradient: LinearGradient(
+//             begin: Alignment.topCenter,
+//             end: Alignment.bottomCenter,
+//             colors: [
+//               lightColor,
+//               darkColor,
+//             ],
+//           ),
+//         ),
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//           children: <Widget>[
+//             Image.asset(
+//               imageURI,
+//               height: 120.0,
+//             ),
+//             Text(
+//               title,
+//               style: Theme.of(context)
+//                   .textTheme
+//                   .subtitle1
+//                   .copyWith(color: Colors.white),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
