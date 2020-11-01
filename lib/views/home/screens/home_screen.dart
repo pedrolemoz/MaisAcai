@@ -12,14 +12,14 @@ class _HomeScreenState extends State<HomeScreen> {
     // final List<Widget> menuItems = [
     //   GradientStaticItemCard(
     //     title: 'Açaí',
-    //     imageURI: 'assets/acai_puro.png',
+    //     imageAsset: 'assets/acai_puro.png',
     //     darkColor: Color(0xFF6A1953),
     //     lightColor: Color(0xFF9a487f),
     //     onTap: () => ExtendedNavigator.root.push(Routes.orderScreen),
     //   ),
     //   GradientStaticItemCard(
     //     title: 'Sorvete',
-    //     imageURI: 'assets/acai_puro.png',
+    //     imageAsset: 'assets/acai_puro.png',
     //     darkColor: Colors.blue[900],
     //     lightColor: Colors.blue[500],
     //   ),

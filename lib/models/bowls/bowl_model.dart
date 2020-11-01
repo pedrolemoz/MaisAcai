@@ -1,12 +1,15 @@
-import '../../helpers/firebase_helper.dart';
+import 'package:flutter/material.dart';
+
 import '../order_component.dart';
 
 class BowlModel extends OrderComponent {
-  BowlModel({String name, String imageURI, double price})
-      : super(name: name, imageURI: imageURI, price: price);
-
-  factory BowlModel.fromJSON(Map<String, dynamic> json) => BowlModel(
-      name: json[FirebaseHelper.bowName],
-      imageURI: json[FirebaseHelper.bowImageURI],
-      price: json[FirebaseHelper.bowPrice]);
+  BowlModel({
+    String name,
+    String imageAsset,
+    double price,
+    List<Color> colors = const [
+      Color(0xFF9a487f),
+      Color(0xFF6A1953),
+    ],
+  }) : super(name: name, imageAsset: imageAsset, price: price, colors: colors);
 }

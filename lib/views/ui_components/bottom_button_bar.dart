@@ -26,7 +26,8 @@ class BottomButtonBar extends StatelessWidget {
           ),
           child: InkWell(
             onTap: isActive ? onTap : null,
-            splashColor: Color(0xFFCED2D9),
+            splashColor: Color(0xFF6a1953),
+            highlightColor: Color(0xFF6a1953),
             child: Center(
               child: Text(label,
                   style: Theme.of(context)

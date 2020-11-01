@@ -1,9 +1,8 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mais_acai/controllers/controllers.dart';
 
+import 'controllers/controllers.dart';
 import 'views/navigation/router.gr.dart';
 import 'views/theme/app_theme.dart';
 

@@ -1,12 +1,16 @@
+import 'package:flutter/material.dart';
+
 import '../../helpers/firebase_helper.dart';
 import '../order_component.dart';
 
 class FlavorModel extends OrderComponent {
-  FlavorModel({String name, String imageURI, double price})
-      : super(name: name, imageURI: imageURI, price: price);
-
-  factory FlavorModel.fromJSON(Map<String, dynamic> json) => FlavorModel(
-      name: json[FirebaseHelper.flavorName],
-      imageURI: json[FirebaseHelper.flavorImageURI],
-      price: json[FirebaseHelper.flavorPrice]);
+  FlavorModel({
+    String name,
+    String imageAsset,
+    double price,
+    List<Color> colors = const [
+      Color(0xFF9a487f),
+      Color(0xFF6A1953),
+    ],
+  }) : super(name: name, imageAsset: imageAsset, price: price, colors: colors);
 }

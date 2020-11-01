@@ -5,14 +5,14 @@ import '../exceptions/exceptions.dart';
 
 abstract class OrderComponent {
   String name;
-  String imageURI;
+  String imageAsset;
   double price;
+  List<Color> colors;
 
   OrderComponent({
     this.name,
-    this.imageURI,
-    this.price,
-  })  : assert(name != null, throw NullAttributeException('name')),
-        assert(imageURI != null, throw NullAttributeException('imageURI')),
-        assert(price != null, throw NullAttributeException('price'));
+    this.imageAsset,
+    this.price = 0,
+    this.colors,
+  }) : assert(name != null, throw NullAttributeException('name'));
 }

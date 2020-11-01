@@ -54,6 +54,20 @@ mixin _$StoreDataController on _StoreDataControllerBase, Store {
     });
   }
 
+  final _$_StoreDataControllerBaseActionController =
+      ActionController(name: '_StoreDataControllerBase');
+
+  @override
+  void _fetchAvaliableComponents() {
+    final _$actionInfo = _$_StoreDataControllerBaseActionController.startAction(
+        name: '_StoreDataControllerBase._fetchAvaliableComponents');
+    try {
+      return super._fetchAvaliableComponents();
+    } finally {
+      _$_StoreDataControllerBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
   @override
   String toString() {
     return '''

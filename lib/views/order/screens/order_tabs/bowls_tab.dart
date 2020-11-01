@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:get_it/get_it.dart';
-import 'package:mais_acai/models/models.dart';
+
 import '../../../../controllers/controllers.dart';
 import '../../../ui_components/ui_components.dart';
 

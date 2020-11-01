@@ -1,4 +1,4 @@
-import 'package:mais_acai/models/models.dart';
+import '../../models/models.dart';
 import 'package:mobx/mobx.dart';
 part 'cart_controller.g.dart';
 
